@@ -141,4 +141,4 @@ if REDIS_HOST and REDIS_HOST != "":
         }
     }
 
-DEFAULT_CACHE_TIME = 60 * 60  # In seconds Ex: 60 * 60 = 1h
+DEFAULT_CACHE_TIME = 60 * 60  # 1 hour

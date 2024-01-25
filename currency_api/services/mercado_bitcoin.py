@@ -23,19 +23,20 @@ class MarketplaceService:
                 status.HTTP_400_BAD_REQUEST,
             )
 
-        try:
-            response = requests.get(
-                url,
-                headers=simulate_browser_headers(),
-            )
+        response = requests.get(
+            url,
+            headers=simulate_browser_headers(),
+        )
 
-            response.raise_for_status()
-            response = response.json()
-        except Exception:
+        # For local development purposes only
+
+        if response.status_code == status.HTTP_403_FORBIDDEN:
             json_file_path = "currency_api/services/mocked_data/mb_marketplace_btc.json"
 
             with open(json_file_path, "r") as json_file:
                 response = json.load(json_file)
+        else:
+            response = response.json()
 
         return (
             response,
