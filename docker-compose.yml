@@ -15,6 +15,7 @@ services:
       - .:/home/app/mb_crypto
     command: >
       sh -c "python manage.py migrate &&
+             make loaddata &&
              python manage.py runserver 0.0.0.0:8000"
     ports:
       - "8000:8000"
