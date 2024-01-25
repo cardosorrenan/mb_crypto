@@ -1,0 +1,10 @@
+[
+    {
+        "model": "currency_api.CurrencyModel",
+        "pk": 1,
+        "fields": {
+            "name": "Bitcoin",
+            "code": "BTD"
+        }
+    }
+]

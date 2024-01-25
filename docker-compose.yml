@@ -11,6 +11,8 @@ services:
     build: .
     container_name: mb-crypto-app
     restart: always
+    volumes:
+      - .:/home/app/mb_crypto
     command: >
       sh -c "python manage.py migrate &&
              python manage.py runserver 0.0.0.0:8000"
