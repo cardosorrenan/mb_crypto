@@ -1,0 +1,53 @@
+{
+    "total_items": 1,
+    "response_data": {
+      "total_items": 1,
+      "products": [
+        {
+            "product_id": "BTC",
+            "name": "Bitcoin",
+            "icon_url": {
+            "svg": "https://static.mercadobitcoin.com.br/web/img/icons/assets/ico-asset-btc-color.svg",
+            "png": "https://static.mercadolitecoin.com.br/app/general/assets/btc.png"
+            },
+            "type": "crypto",
+            "market_price": "196402.86000000",
+            "tags": [],
+            "description": "Bitcoin é uma moeda digital que permite pagamentos em transações online sem a necessidade de um intermediário. Baseada na rede blockchain, foi a pioneira entre as criptomoedas.",
+            "product_data": {
+            "symbol": "BTC",
+            "type": "crypto",
+            "sub_type": {
+                "code": "coin",
+                "display_text": "Criptomoeda"
+            },
+            "variation": {
+                "string": "-1.23%",
+                "number": -1.2304488674530178,
+                "status": "negative"
+            },
+            "market_cap": "3962237847387.32370000000000000000000000000000",
+            "created_at": "2022-08-29T07:04:49",
+            "release_date": "2013-01-01",
+            "asset_decimals": 8,
+            "fiat_decimals": 2,
+            "visible_when_unlogged": true,
+            "visible_when_logged": true,
+            "prelisted": false,
+            "fact_sheet_url": null,
+            "term_url": null,
+            "warnings": [],
+            "quote": "BRL"
+            },
+            "visible_when_logged": true,
+            "visible_when_unlogged": true,
+            "favorite": false,
+            "balances": null
+        }
+      ],
+      "pagination": {
+        "limit": 20,
+        "offset": 0
+      }
+    }
+}

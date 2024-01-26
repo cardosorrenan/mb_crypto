@@ -1,0 +1,7 @@
+Develop an API that returns the price of a specific currency when querying the endpoint 
+with the currency symbol, such as BTC. The project code should include a Makefile to execute 
+the API with the "make api" command. The endpoint, accessed through a POST request to 
+"localhost/api/coin_infos," should receive a payload with the currency symbol, like "BTC" and 
+return the currency name, symbol, price in Brazilian Reais, price in US dollars, and the date 
+and time of the request. Optionally, the project may include a docker-compose.yml file to set up 
+a local cache with Redis, with a 3-minute expiration.

@@ -1,0 +1,47 @@
+version: "3.9"
+
+services:
+  redis:
+    image: redis:alpine
+    container_name: mb-crypto-cache
+    ports:
+      - "6379:6379"
+    networks:
+      - mb-crypto-network
+
+  postgres:
+    image: postgres:14.1-alpine
+    container_name: mb-crypto-db
+    env_file:
+      - .env
+    ports:
+      - "5432:5432"
+    volumes:
+      - data_db:/var/lib/postgresql/data
+    networks:
+      - mb-crypto-network
+
+  app:
+    build: .
+    container_name: mb-crypto-app
+    restart: always
+    volumes:
+      - .:/home/app/mb_crypto
+    command: >
+      sh -c "python manage.py migrate &&
+             make loaddata &&
+             python manage.py createsuperuser_dev --username dev_user --password dev_user --email 'dev@user.com' --no-input --preserve &&
+             python manage.py runserver 0.0.0.0:8000"
+    ports:
+      - "8000:8000"
+    env_file: .env
+    depends_on:
+      - postgres
+    networks:
+      - mb-crypto-network
+
+volumes:
+  data_db:
+
+networks:
+  mb-crypto-network:
