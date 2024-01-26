@@ -4,6 +4,9 @@ start: stop
 stop:
 	docker-compose down
 
+rebuild:
+	docker-compose build --no-cache
+	
 test-all:
 	pytest
 

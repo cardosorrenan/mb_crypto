@@ -1,4 +1,3 @@
-import json
 import os
 
 import requests
@@ -6,6 +5,7 @@ from rest_framework import status
 
 from currency_api.utils import (
     CurrencyValidator,
+    format_currency_info_response,
     get_mocked_currency_info_response,
     simulate_browser_headers,
 )
@@ -39,6 +39,6 @@ class MarketplaceService:
             response = response.json()
 
         return (
-            response,
+            format_currency_info_response(response),
             status.HTTP_200_OK,
         )
