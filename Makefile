@@ -4,6 +4,9 @@ start: stop
 stop:
 	docker-compose down
 
+clean-volumes:
+	docker-compose down -v
+
 rebuild:
 	docker-compose build --no-cache
 	

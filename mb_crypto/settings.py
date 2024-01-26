@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 import os
+from datetime import timedelta
 from pathlib import Path
 
 import environ
@@ -44,6 +45,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "rest_framework",
     "drf_yasg",
+    "rest_framework_simplejwt",
     "currency_api",
 ]
 
@@ -83,8 +85,12 @@ WSGI_APPLICATION = "mb_crypto.wsgi.application"
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": env.get_value("POSTGRES_DB"),
+        "USER": env.get_value("POSTGRES_USER"),
+        "PASSWORD": env.get_value("POSTGRES_PASSWORD"),
+        "HOST": env.get_value("POSTGRES_HOST"),
+        "PORT": env.get_value("POSTGRES_PORT"),
     }
 }
 
@@ -141,5 +147,16 @@ if REDIS_HOST and REDIS_HOST != "":
             },
         }
     }
+
+REST_FRAMEWORK = {
+    "DEFAULT_AUTHENTICATION_CLASSES": (
+        "rest_framework_simplejwt.authentication.JWTAuthentication",
+    )
+}
+
+SIMPLE_JWT = {
+    "ACCESS_TOKEN_LIFETIME": timedelta(minutes=30),
+    "REFRESH_TOKEN_LIFETIME": timedelta(days=30),
+}
 
 DEFAULT_CACHE_TIME = 60 * 60  # 1 hour

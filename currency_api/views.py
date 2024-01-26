@@ -1,6 +1,7 @@
 from django.conf import settings
 from django.core.cache import cache
 from rest_framework.generics import GenericAPIView
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 
 from .decorators import request_currency_info_schema
@@ -14,6 +15,7 @@ alphavant_integration = CurrencyExchangeRate()
 
 class CurrencyInfoView(GenericAPIView):
     queryset = CurrencyModel.objects.all()
+    permission_classes = (IsAuthenticated,)
     CACHE_TIMEOUT_COIN_INFO = settings.DEFAULT_CACHE_TIME / 60 * 3
     http_method_names = ["post"]
 
