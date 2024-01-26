@@ -1,6 +1,6 @@
 # MB_Crypto
 
-:pushpin: [Task Description](https://github.com/cardosorrenan/mb_crypto/task.txt)
+:pushpin: [Task Description](https://github.com/cardosorrenan/mb_crypto/blob/main/task.txt)
 
 Please ensure that you have Docker and Docker Compose installed [Instructions](https://docs.docker.com/compose/install/linux/), running before following the steps below.
 
@@ -35,7 +35,7 @@ Follow these steps to set up and run the project:
    make test-integration    : Run integration tests
    make loaddata            : Load fixture data into the application
    make createsuperuser_dev : Create a development superuser
-   make clean-redis         : Deletes all cached keys in the Redis database"
+   make clean-redis         : Deletes all cached keys in the Redis database
 
    ```
 
