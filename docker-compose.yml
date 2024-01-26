@@ -30,7 +30,7 @@ services:
     command: >
       sh -c "python manage.py migrate &&
              make loaddata &&
-             python manage.py createsuperuser_dev --username dev_user --password dev_user --noinput --email 'dev@user.com' &&
+             python manage.py createsuperuser_dev --username dev_user --password dev_user --email 'dev@user.com' --no-input --preserve &&
              python manage.py runserver 0.0.0.0:8000"
     ports:
       - "8000:8000"

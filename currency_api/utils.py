@@ -66,8 +66,5 @@ def get_mocked_currency_info_response():
         "currency_api/services/mocked_data/mb_marketplace_btc.json"
     )
 
-    response = None
     with open(CURRENCY_INFO_MOCKED_DATA, "r") as json_file:
-        response = json.load(json_file)
-
-    return response
+        return json.load(json_file)
