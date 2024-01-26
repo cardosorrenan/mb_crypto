@@ -4,7 +4,11 @@ import os
 import requests
 from rest_framework import status
 
-from currency_api.utils import CurrencyValidator, simulate_browser_headers
+from currency_api.utils import (
+    CurrencyValidator,
+    get_mocked_currency_info_response,
+    simulate_browser_headers,
+)
 
 validator = CurrencyValidator()
 
@@ -29,12 +33,8 @@ class MarketplaceService:
         )
 
         # For local development purposes only
-
         if response.status_code == status.HTTP_403_FORBIDDEN:
-            json_file_path = "currency_api/services/mocked_data/mb_marketplace_btc.json"
-
-            with open(json_file_path, "r") as json_file:
-                response = json.load(json_file)
+            response = get_mocked_currency_info_response()
         else:
             response = response.json()
 
